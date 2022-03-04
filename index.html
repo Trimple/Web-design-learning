@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page title</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <div class="clock_div"></div><span id="clock" class="clock_div"></span></div>
+        <div class="heart"></div>
+
+        <script>
+            (function () {
+
+                var clockElement = document.getElementById("clock");
+
+                function updateClock(clock) {
+                    clock.innerHTML = new Date().toLocaleTimeString();
+                }
+
+                setInterval(function () {
+                    updateClock(clockElement);
+                }, 1000);
+
+            }());
+        </script>
+    </body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Page title</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>(function () {
+
+        var clockElement = document.getElementById( "clock" );
+      
+        function updateClock ( clock ) {
+          clock.innerHTML = new Date().toLocaleTimeString();
+        }
+      
+        setInterval(function () {
+            updateClock( clockElement );
+        }, 1000);
+      
+      }());
+      </script>
+
+</head>
+<body>
+    <p class="test"> Hefdsllods World!</p>
+
+    <dev class="clock_dev"><span id="clock">1</span></dev>
+     <div class="heart"></div>
+
+</body>
+</html> -->
