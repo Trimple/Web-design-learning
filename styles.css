@@ -13,13 +13,21 @@ div{
   font-family: monospace;
 }
 
+.additional_text{
+  display: table;
+  margin: 10px auto;
+
+  font-weight: 600;
+  font-size: 80px;
+}
+
 #clock{
   display: table;
-  margin: 1em auto;
+  margin: 100px auto;
   color: #EEEEEE;
   font-family: monospace;
-  font-weight: 800;
-  font-size: 120px;
+  font-weight: 600;
+  font-size: 140px;
 }
 
 .clock_div{

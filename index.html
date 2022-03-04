@@ -3,14 +3,28 @@
     <head>
         <title>Page title</title>
         <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
+        <script>
 
-        <div class="clock_div"></div><span id="clock" class="clock_div"></span></div>
-        <div class="heart"></div>
+            function myFunction() {
+                let deadlineDate = "03.31.2022"
+                document.getElementById("deadlineDate").innerHTML = deadlineDate;
+                let targetDate = new Date(deadlineDate);
+                let currentDate = new Date();
+                document.getElementById("number_of_days").innerHTML = ((targetDate.getTime() - currentDate.getTime())/ (1000 * 3600 * 24)).toFixed(0);
+            }
+        </script>
+    </head><body onload="myFunction()">
+    
+        <div class="additional_text">Deadline: <span id="deadlineDate" style="color:cyan; opacity: 70%;"></span>
+        </div>
+        <div class="additional_text">Days till deadline: <span id="number_of_days" style="color:cyan; opacity:70%;"></span>
+    </body>
+    </div>
+    <div class="clock_div"></div><span id="clock" class="clock_div"></span></div>
+    <div class="heart"></div>
 
         <script>
-            (function () {
+            (function theTime() {
 
                 var clockElement = document.getElementById("clock");
 
@@ -21,41 +35,9 @@
                 setInterval(function () {
                     updateClock(clockElement);
                 }, 1000);
-
             }());
         </script>
     </body>
 </html>
 
 
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Page title</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>(function () {
-
-        var clockElement = document.getElementById( "clock" );
-      
-        function updateClock ( clock ) {
-          clock.innerHTML = new Date().toLocaleTimeString();
-        }
-      
-        setInterval(function () {
-            updateClock( clockElement );
-        }, 1000);
-      
-      }());
-      </script>
-
-</head>
-<body>
-    <p class="test"> Hefdsllods World!</p>
-
-    <dev class="clock_dev"><span id="clock">1</span></dev>
-     <div class="heart"></div>
-
-</body>
-</html> -->
