@@ -13,18 +13,13 @@ div{
   font-family: monospace;
 }
 
-
-.test{
-    color: green;
-}
-
 #clock{
   display: table;
   margin: 1em auto;
-  color: white;
+  color: #EEEEEE;
   font-family: monospace;
   font-weight: 800;
-  font-size: 100px;
+  font-size: 120px;
 }
 
 .clock_div{
@@ -36,12 +31,8 @@ div{
 }
 
 .heart {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    position: relative;
+    margin: 0 auto;
     background-color: var(--heart-color-off);
     height: 50px;
     width: 50px;
