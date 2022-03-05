@@ -6,12 +6,20 @@
         <script>
 
             function myFunction() {
-                let deadlineDate = "03.31.2022"
-                document.getElementById("deadlineDate").innerHTML = deadlineDate;
+                let deadlineDate = "2022-03-31T00:03:00"
+
+                let testDate = new Date(deadlineDate);
+                let day = testDate.getDate();
+                let month = testDate.getMonth() + 1;
+                let year = testDate.getFullYear();
+                let testString = "" + (day > 9 ? day : "0" + day) + "." + (month > 9 ? month: "0" + month) + "." + year;
+
+                document.getElementById("deadlineDate").innerHTML = testString;
                 let targetDate = new Date(deadlineDate);
                 let currentDate = new Date();
                 document.getElementById("number_of_days").innerHTML = ((targetDate.getTime() - currentDate.getTime())/ (1000 * 3600 * 24)).toFixed(0);
             }
+
         </script>
     </head><body onload="myFunction()">
     
@@ -27,9 +35,13 @@
             (function theTime() {
 
                 var clockElement = document.getElementById("clock");
-
+``
                 function updateClock(clock) {
-                    clock.innerHTML = new Date().toLocaleTimeString();
+                    let currentDate = new Date();
+                    let seconds = currentDate.getSeconds();
+                    let minutes = currentDate.getMinutes();
+                    let hours = currentDate.getHours();
+                    clock.innerHTML = "" + (hours > 9 ? hours: "0" + hours) + ":"  + (minutes > 9 ?  minutes: "0" + minutes) + ":" + (seconds > 9  ? seconds: "0" + seconds);
                 }
 
                 setInterval(function () {
