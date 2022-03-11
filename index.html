@@ -21,8 +21,10 @@
             }
 
         </script>
-    </head><body onload="myFunction()">
+    </head>
+    <body onload="myFunction()">
     
+        <div class="additional_text">Implement <span style="color:cyan; opacity: 70%;">Automated testing and OTA for robots</span></div>
         <div class="additional_text">Deadline: <span id="deadlineDate" style="color:cyan; opacity: 70%;"></span>
         </div>
         <div class="additional_text">Days till deadline: <span id="number_of_days" style="color:cyan; opacity:70%;"></span>
@@ -35,13 +37,13 @@
             (function theTime() {
 
                 var clockElement = document.getElementById("clock");
-``
+                ``
                 function updateClock(clock) {
                     let currentDate = new Date();
                     let seconds = currentDate.getSeconds();
                     let minutes = currentDate.getMinutes();
                     let hours = currentDate.getHours();
-                    clock.innerHTML = "" + (hours > 9 ? hours: "0" + hours) + ":"  + (minutes > 9 ?  minutes: "0" + minutes) + ":" + (seconds > 9  ? seconds: "0" + seconds);
+                    clock.innerHTML = "" + (hours > 9 ? hours : "0" + hours) + ":" + (minutes > 9 ? minutes : "0" + minutes) + ":" + (seconds > 9 ? seconds : "0" + seconds);
                 }
 
                 setInterval(function () {
