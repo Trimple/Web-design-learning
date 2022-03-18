@@ -5,47 +5,92 @@
         <link rel="stylesheet" href="styles.css">
         <script>
 
-            function myFunction() {
-                let deadlineDate = "2022-03-20T00:03:00"
+            // function convertDateToStringWithTime(inputDate)
+            // {
+            //     let day = inputDate.getDate();
+            //     let month = inputDate.getMonth() + 1;
+            //     let year = inputDate.getFullYear();
+            //     let hours = inputDate.getHours();
+            //     let minutes = inputDate.getMinutes();
 
-                let testDate = new Date(deadlineDate);
-                let day = testDate.getDate();
-                let month = testDate.getMonth() + 1;
-                let year = testDate.getFullYear();
+            //     let testString = "" + (day > 9 ? day : "0" + day) + "." + (month > 9 ? month: "0" + month) + "." + year + " (" + hours+":" + (minutes > 9 ? minutes : "0" + minutes + ")");
+
+            //     return testString;
+            // }
+
+            function convertDateToString(inputDate)
+            {
+                let day = inputDate.getDate();
+                let month = inputDate.getMonth() + 1;
+                let year = inputDate.getFullYear();
+
                 let testString = "" + (day > 9 ? day : "0" + day) + "." + (month > 9 ? month: "0" + month) + "." + year;
 
-                document.getElementById("deadlineDate").innerHTML = testString;
-                let targetDate = new Date(deadlineDate);
-                let currentDate = new Date();
-                document.getElementById("number_of_days").innerHTML = ((targetDate.getTime() - currentDate.getTime())/ (1000 * 3600 * 24)).toFixed(0);
+                return testString;
             }
 
-        </script>
-    </head>
-    <body onload="myFunction()">
-        <div class="additional_text"> <span style="color:cyan; opacity: 70%;">Wi-fi control for robot cars</span></div><br>
-        <!-- <div class="additional_text"></div> -->
-        <div class="additional_text">Deadline: <span id="deadlineDate" style="color:cyan; opacity: 70%;"></span>
-        </div>
-        <div class="additional_text">Days till deadline: <span id="number_of_days" style="color:cyan; opacity:70%;"></span>
-    </body>
-    </div>
-    <div class="clock_div"></div><span id="clock" class="clock_div"></span></div>
-    <div class="heart"></div>
+            function myFunction() {
+                let deadlineDate = "2022-03-21T12:00:00"
 
+                let testDate = new Date(deadlineDate);
+                let currentDate = new Date();
+
+                if (testDate.getDate() == currentDate.getDate())
+                {
+                    document.getElementById("todayText").style.fontSize = "2.0em";
+                    document.getElementById("todayText").innerHTML = "Today is the day! ";
+                    document.getElementById("todayText").style.background = "linear-gradient(35deg, #833ab4, #fd1d1d, #fcb045)"
+                    document.getElementById("todayText").style.webkitBackgroundClip = "text";
+                    document.getElementById("todayText").style.webkitTextFillColor = "transparent";
+                }
+                else
+                {
+                    document.getElementById("numberOfDaysText").innerHTML = "Days till deadline: ";
+                    document.getElementById("deadlineText").innerHTML = "Deadline ";
+                    document.getElementById("todayText").innerHTML = "Today: ";
+
+                    // let testString = convertDateToStringWithTime(testDate);
+                    let testString = convertDateToString(testDate);
+
+                    document.getElementById("deadlineDate").innerHTML = testString;
+                    let targetDate = new Date(deadlineDate);
+                    let todayString = convertDateToString(currentDate);
+                    document.getElementById("todayDate").innerHTML = todayString;
+                    document.getElementById("number_of_days").innerHTML = ((targetDate.getTime() - currentDate.getTime()) / (1000 * 3600 * 24)).toFixed(0);
+                }
+            }
+
+        </script></head>
+        <body onload="myFunction()">
+            <div class="additional_text"> <span style="color:cyan; opacity: 90%; font-size: 1.3em;">Wi-fi control for robot
+                    cars</span></div><br>
+            <div class="additional_text"><span id="deadlineText"></span> <span id="deadlineDate"
+                    style="color:cyan; opacity: 90%;"></span>
+            </div>
+            <div class="additional_text"><span id="todayText"></span> <span id="todayDate"
+                    style="color:cyan;opacity:90%;"></span></div>
+            <div class="additional_text"><span id="numberOfDaysText"></span> <span id="number_of_days"
+                    style="color:cyan; opacity:90%;"></span>
+        </body>
+        </div>
+        <div class="clock_div"></div><span id="clock" class="clock_div"></span></div>
+        <div class="additional_text"><span id="goHomeText"></span></div>
         <script>
             (function theTime() {
-
                 var clockElement = document.getElementById("clock");
-                ``
-                function updateClock(clock) {
+                function updateClock(clock)
+                 {
                     let currentDate = new Date();
                     let seconds = currentDate.getSeconds();
                     let minutes = currentDate.getMinutes();
                     let hours = currentDate.getHours();
                     clock.innerHTML = "" + (hours > 9 ? hours : "0" + hours) + ":" + (minutes > 9 ? minutes : "0" + minutes) + ":" + (seconds > 9 ? seconds : "0" + seconds);
-                }
 
+                    if (hours >= 20) 
+                    {
+                        document.getElementById("goHomeText").innerHTML = "GO HOME!";
+                    }
+                }
                 setInterval(function () {
                     updateClock(clockElement);
                 }, 1000);
