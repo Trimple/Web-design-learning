@@ -35,7 +35,7 @@
                 let testDate = new Date(deadlineDate);
                 let currentDate = new Date();
 
-                if (testDate.getDate() == currentDate.getDate())
+                if (testDate.getDate() == currentDate.getDate() && testDate.getMonth() == currentDate.getMonth() && testDate.getFullYear() == currentDate.getFullYear())
                 {
                     document.getElementById("todayText").style.fontSize = "2.0em";
                     document.getElementById("todayText").innerHTML = "Today is the day! ";
